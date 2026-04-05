@@ -1,6 +1,6 @@
 # Production Ready URL shortener
 
-For detailed documentation, visit the published GitBook: https://hawk-wild.gitbook.io/untitled
+**For detailed documentation, visit the published GitBook:** https://hawk-wild.gitbook.io/untitled
 
 Production-style URL shortener service built for the MLH PE Hackathon tracks:
 
