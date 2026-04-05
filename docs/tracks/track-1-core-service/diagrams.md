@@ -56,17 +56,17 @@ erDiagram
   USERS {
     int id PK
     string username
-    string email UNIQUE
+    string email UK
     datetime created_at
   }
 
   URLS {
     int id PK
     int user_id FK
-    string short_code UNIQUE
+    string short_code UK
     string original_url
     string title
-    bool is_active
+    boolean is_active
     datetime created_at
     datetime updated_at
   }
@@ -76,7 +76,7 @@ erDiagram
     int url_id FK
     int user_id FK
     string event_type
-    json details
+    text details
     datetime timestamp
   }
 ```
