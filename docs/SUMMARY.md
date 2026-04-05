@@ -1,6 +1,6 @@
 # Summary
 
-- [Project Documentation](README.md)
+- [Complete Documentation](README.md)
 
 - [Architecture and API Overview](architecture-and-api/overview.md)
 - [API Reference](architecture-and-api/api-reference.md)
