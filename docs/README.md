@@ -1,34 +1,38 @@
-# Reliability Engineering Documentation
+# Project Documentation
 
-This section documents the Reliability Engineering implementation for this project and is prepared in GitBook-friendly Markdown.
+Welcome to the project documentation. This guide is written for someone who is opening the repository for the first time and wants to understand both how the system works and how to operate it safely.
 
-## Contents
+## Documentation structure
 
-- `reliability-bonus-quest.md`: Bonus Quest implementation summary and evidence
-- `observability.md`: logging, metrics, and diagnostics endpoints
-- `error-handling.md`: API error contract and examples
-- `failure-modes.md`: failure catalog, mitigations, and known gaps
-- `resilience-runbook.md`: chaos drill and operational runbook
+The docs are organized by implementation tracks so each concern can be read independently.
 
-## Scope
+### Track 1: Core Service Foundations
 
-The documentation focuses on reliability controls already implemented in the repository:
+- `tracks/track-1-core-service/overview.md`
+- `tracks/track-1-core-service/api-reference.md`
+- `tracks/track-1-core-service/data-model-and-validation.md`
+- `tracks/track-1-core-service/developer-workflow.md`
 
-- Stable API failure contracts
-- Structured logging and diagnostics
-- Runtime health checks
-- Database connection pool hardening
-- Container and process auto-recovery behavior
+### Track 2: Reliability Engineering
 
-## Verification Snapshot
+- `tracks/track-2-reliability-engineering/overview.md`
+- `tracks/track-2-reliability-engineering/error-handling-contract.md`
+- `tracks/track-2-reliability-engineering/resilience-and-recovery.md`
+- `tracks/track-2-reliability-engineering/bonus-quest-report.md`
 
-Latest local test run:
+### Track 3: Scalability and Monitoring
 
-- `17 passed`
-- Coverage: `91.42%`
+- `tracks/track-3-scalability-and-monitoring/overview.md`
+- `tracks/track-3-scalability-and-monitoring/load-testing.md`
+- `tracks/track-3-scalability-and-monitoring/monitoring-and-alerting.md`
+- `tracks/track-3-scalability-and-monitoring/operations-playbook.md`
 
-Command used:
+## Recommended reading order for new contributors
 
-```bash
-python -m pytest -q
-```
+1. Track 1 overview and API reference
+2. Track 2 reliability overview and error contract
+3. Track 3 monitoring and operations playbook
+
+## Legacy pages
+
+The original top-level pages are retained for compatibility and now act as entry points into the new track-based documentation layout.
