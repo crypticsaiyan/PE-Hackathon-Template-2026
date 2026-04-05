@@ -1,4 +1,4 @@
-# Project Documentation
+# Complete Documentation
 
 Welcome to the project documentation. This guide is written for someone who is opening the repository for the first time and wants to understand both how the system works and how to operate it safely.
 
@@ -32,7 +32,3 @@ The docs are organized by operational domains so each concern can be read indepe
 1. Architecture and API overview and API reference
 2. Reliability overview and error contract
 3. Monitoring guide and operations playbook
-
-## Legacy pages
-
-The original top-level pages are retained for compatibility and now act as entry points into the domain-based documentation layout.
