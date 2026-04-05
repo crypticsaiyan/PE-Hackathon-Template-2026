@@ -1,25 +1,22 @@
 FROM python:3.13-slim
 
-# Install uv directly into the container using the official binary image
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
-
 WORKDIR /app
 
-# Copy dependency files first to maximize Docker layer caching
-COPY pyproject.toml uv.lock ./
+# Copy dependency list
+COPY requirements.txt ./
 
-# Install dependencies using uv into the container's virtual environment
-RUN uv sync --frozen --no-dev
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application files
+# Copy application code
 COPY . .
 
-# Explicitly state the port we will listen on
-EXPOSE 8000
-
-# Environment variables for Python performance and stability
+# Environment variables for performance
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
-# Start Uvicorn via the run.py script
-CMD ["uv", "run", "python", "run.py"]
+# Expose port
+EXPOSE 8000
+
+# Entry point
+CMD ["python", "run.py"]
