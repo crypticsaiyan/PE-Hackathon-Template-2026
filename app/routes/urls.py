@@ -81,7 +81,8 @@ def create_url(url: URLCreate, background_tasks: BackgroundTasks, db: Session = 
 
     db_url, short_code = _create_url_record(db, url)
     
-    invalidate_cache(get_redis_client(), "urls:*")
+    # Only invalidate the specific user's cache instead of the entire URLs cache
+    invalidate_cache(get_redis_client(), f"urls:user_id={url.user_id}:*")
     _schedule_event(
         background_tasks,
         db,
@@ -124,10 +125,7 @@ def get_url(id: int, background_tasks: BackgroundTasks, db: Session = Depends(ge
     cache_key = f"url:{id}"
     cached = get_cache(redis_client, cache_key)
     if cached is not None:
-        _schedule_event(
-            background_tasks, db, url_id=id, user_id=cached["user_id"],
-            event_type="accessed", details={"short_code": cached["short_code"], "original_url": cached["original_url"]}
-        )
+        # DB write operation is removed from cache hits to preserve DB connections under load
         return cached
 
     url = db.query(URL).filter(URL.id == id).first()
